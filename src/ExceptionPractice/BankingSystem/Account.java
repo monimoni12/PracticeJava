@@ -31,7 +31,10 @@ public class Account {
 
     // *잘못된 금액 또는 잔액 부족 시 예외를 발생시킬 것
     // 입금
-    public void deposit(int money) throws InvalidTransactionException{
+
+    // InvalidTransactionException을 **RuntimeException**으로 바꿔줬으므로
+    // public void deposit(int money) throws InvalidTransactionException{
+    public void deposit(int money){
         if(money < 0){
             throw new InvalidTransactionException("입금 금액이 0원 이하입니다. 다시 입금해주세요.");
         }

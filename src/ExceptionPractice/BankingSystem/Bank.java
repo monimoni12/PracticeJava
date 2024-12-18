@@ -22,7 +22,10 @@ public class Bank {
 
     //↳ 고객 추가 메서드
     // 고객 ID가 중복될 때 예외처리
-    public void addCustomer(Customer customer) throws BankOperationException{
+
+    // BankOperationException을 **RuntimeException**으로 바꿔줬으므로
+    // public void addCustomer(Customer customer) throws BankOperationException{
+    public void addCustomer(Customer customer){
         for(Customer c : customers){
             if(c != null && c.customerID == customer.customerID) throw new BankOperationException("Customer already exists");
             customers[customerCNT] = customer;
@@ -37,7 +40,10 @@ public class Bank {
 //            else System.out.println("등록되지 않은 고객입니다.");
 //        }
 //    }
-    public Customer findCustomer(String accountNumber) throws BankOperationException{
+
+    // BankOperationException을 **RuntimeException**으로 바꿔줬으므로
+    // public Customer findCustomer(String accountNumber) throws BankOperationException{
+    public Customer findCustomer(String accountNumber){
         for(Customer c : customers){
             for(int i=0; i<c.accounts.length;i++){
                 if (accountNumber.equals(c.accounts[i].accountNumber)) {
